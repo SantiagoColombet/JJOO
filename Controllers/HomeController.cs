@@ -18,11 +18,27 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult Paises()
     {
         return View();
     }
-
+    public IActionResult Historia()
+    {
+        return View();
+    }
+    public IActionResult Deportes()
+    {
+        return View();
+    }
+    public IActionResult AgregarDeportista()
+    {
+        return View();
+    }
+    public IActionResult Creditos()
+    {
+        return View();
+    }
+   
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
