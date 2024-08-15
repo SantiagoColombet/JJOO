@@ -37,6 +37,12 @@ public class HomeController : Controller
     {
         return View();
     }
+
+[HttpPost] public  IActionResult GuardarDeportista(Deportista dep)
+    {
+        bd.AgregarDeportista(dep);
+        return View("Index");
+    }
     public IActionResult Creditos()
     {
         return View();
