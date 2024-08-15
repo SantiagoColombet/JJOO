@@ -3,7 +3,7 @@ using Dapper;
 
 public class bd
 {
-    private static string _connectionString = @"Server=localhost;DataBase=JJOO; Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost; DataBase=JJOO; Trusted_Connection=True;";
     public static void AgregarDeportista(Deportista _deportista)
     {
         string sql = "INSERT INTO Deportistas (Apellido, Nombre, FechaNacimiento, Foto, IdPais, IdDeporte) Values (@pApellido, @pNombre, @pFechaNacimiento, @pFoto, @pIdPais, @pIdDeporte)";
@@ -19,7 +19,7 @@ public class bd
         {
             db.Execute(sql, new { pIdDeportista = idDeportista });
         }
-    }
+    } 
 
     public static Deporte? VerInfoDeporte (int idDeporte)
     {
@@ -67,6 +67,14 @@ public class bd
         using (SqlConnection db = new SqlConnection(_connectionString))
         {   
             return db.Query<Deportista>(sql, new {pidPais = idPais}).ToList();
+        }
+    }  
+        public static List<Deporte> ListarDeportes ()
+    {
+        string sql = "SELECT * FROM Deportes";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {   
+            return db.Query<Deporte>(sql).ToList();
         }
     }  
 }

@@ -15,11 +15,13 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+
         return View();
     }
 
     public IActionResult Paises()
     {
+        ViewBag.Paises = bd.ListarPaises();
         return View();
     }
     public IActionResult Historia()
@@ -28,6 +30,7 @@ public class HomeController : Controller
     }
     public IActionResult Deportes()
     {
+        ViewBag.Deportes = bd.ListarDeportes();
         return View();
     }
     public IActionResult AgregarDeportista()
@@ -38,6 +41,12 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult EliminarDeportista(int idCandidato)
+    {
+        bd.EliminarDeportista(idCandidato);
+        return View();
+    }
+
    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
